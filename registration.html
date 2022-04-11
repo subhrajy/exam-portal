@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&family=Roboto+Slab:wght@400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/queries.css" />
+
+    <!-- <script src="js/script.js" defer></script> -->
+
+    <title>Registration | Website name</title>
+  </head>
+  <body>
+    <!-- <header>
+      <div class="logo-nav">
+        <a href="index.html" class="logo">WEBSITE <span>NAME</span></a>
+      </div>
+    </header> -->
+
+    <div class="form-container">
+      <div class="flex form-names">
+        <h3 class="form-lbl tab-active margin-bottom--md">Personal Details</h3>
+      </div>
+
+      <div class="div-form">
+        <form action="#" method="post" class="" id="submit">
+          <div class="grid--2-cols grid--gap-lg">
+            <div class="div-firstname">
+              <label for="firstname" class="login-lbl">First Name</label>
+              <input
+                type="text"
+                name="first name"
+                id="firstname"
+                class="input-box"
+                required
+              />
+            </div>
+
+            <div class="div-lastname">
+              <label for="lastname" class="login-lbl">Last Name</label>
+              <input
+                type="text"
+                name="last name"
+                id="LastName"
+                class="input-box"
+                required
+              />
+            </div>
+
+            <div class="div-fathername">
+              <label for="fathername" class="login-lbl">Father's Name</label>
+              <input
+                type="text"
+                name="father's Name"
+                id="Father-Name"
+                class="input-box"
+                required
+              />
+            </div>
+
+            <div class="div-mothername">
+              <label for="mothername" class="login-lbl">Mother's Name</label>
+              <input
+                type="text"
+                name="mother's name"
+                id="Mother-Name"
+                class="input-box"
+                required
+              />
+            </div>
+
+            <div class="div--student-address">
+              <label for="studentaddress" class="login-lbl">Address</label>
+              <input
+                type="text"
+                name="addr"
+                id="address"
+                class="input-box"
+                required
+              />
+            </div>
+
+            <div class="div--student-email">
+              <label for="studentemail" class="login-lbl">Email</label>
+              <input
+                type="text"
+                name="student mail"
+                id="student-email"
+                class="input-box"
+                required
+              />
+            </div>
+
+            <div class="div--parent-email">
+              <label for="parentemail" class="login-lbl">Parent's email</label>
+              <input
+                type="text"
+                name="parent mail"
+                id="parent-email"
+                class="input-box"
+                required
+              />
+            </div>
+
+            <div class="div--student-phone">
+              <label for="studentphone" class="login-lbl">Phone Number</label>
+              <input
+                type="text"
+                name="student phone"
+                id="student-number"
+                class="input-box"
+                required
+              />
+            </div>
+
+            <div class="div--parent-phone">
+              <label for="parentphone" class="login-lbl"
+                >Parent's Phone Number</label
+              >
+              <input
+                type="text"
+                name="parent phone"
+                id="parent-number"
+                class="input-box"
+                required
+              />
+            </div>
+
+            <div class="div--date-of-birth">
+              <label for="dob" class="login-lbl">Date of Birth</label>
+              <input
+                type="date"
+                name="dob"
+                id="dob"
+                class="input-box dob"
+                required
+              />
+            </div>
+
+            <div class="div-gender margin-bottom--lg">
+              <label for="gender" class="login-lbl">Gender</label>
+
+              <div class="flex radios">
+                <div class="male">
+                  <input
+                    type="radio"
+                    name="gender"
+                    id="male"
+                    value="male"
+                    required
+                  />
+                  <label for="male" class="radio-lbl">male</label>
+                </div>
+
+                <div class="female">
+                  <input
+                    type="radio"
+                    name="gender"
+                    id="female"
+                    value="female"
+                    required
+                  />
+                  <label for="female" class="radio-lbl">female</label>
+                </div>
+
+                <div class="other">
+                  <input
+                    type="radio"
+                    name="gender"
+                    id="other"
+                    value="other"
+                    required
+                  />
+                  <label for="other" class="radio-lbl">other</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="div-age">
+              <label for="age" class="login-lbl">Age:</label>
+              <p class="age-calculated" name="age">
+                <span class="age">19</span>
+              </p>
+              <span class="err-msg" id="msg9">some error occured</span>
+            </div>
+            <h3 class="form-lbl tab-active heading-academic-details">
+              Academic details
+            </h3>
+
+            <div class="empty"></div>
+
+            <div class="div-branch">
+              <label for="branch" class="login-lbl">Branch</label>
+
+              <div class="flex radios">
+                <div class="">
+                  <input
+                    type="radio"
+                    name="branch"
+                    id="cse"
+                    value="cse"
+                    required
+                  />
+                  <label for="cse" class="radio-lbl">CSE</label>
+                </div>
+
+                <div class="">
+                  <input
+                    type="radio"
+                    name="branch"
+                    id="eee"
+                    value="eee"
+                    required
+                  />
+                  <label for="eee" class="radio-lbl">EEE</label>
+                </div>
+
+                <div class="">
+                  <input
+                    type="radio"
+                    name="branch"
+                    id="ece"
+                    value="ece"
+                    required
+                  />
+                  <label for="ece" class="radio-lbl">ECE</label>
+                </div>
+                <div class="">
+                  <input
+                    type="radio"
+                    name="branch"
+                    id="eie"
+                    value="eie"
+                    required
+                  />
+                  <label for="eie" class="radio-lbl">EIE</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="div-year-of-study margin-bottom--sm">
+              <label for="study-year" class="login-lbl">Year of study</label>
+
+              <div class="flex radios">
+                <div class="">
+                  <input
+                    type="radio"
+                    name="study-year"
+                    id="1st"
+                    value="1"
+                    required
+                  />
+                  <label for="1st" class="radio-lbl">1st</label>
+                </div>
+                <div class="">
+                  <input
+                    type="radio"
+                    name="study-year"
+                    id="2nd"
+                    value="2"
+                    required
+                  />
+                  <label for="2nd" class="radio-lbl">2nd</label>
+                </div>
+                <div class="">
+                  <input
+                    type="radio"
+                    name="study-year"
+                    id="3rd"
+                    value="3"
+                    required
+                  />
+                  <label for="3rd" class="radio-lbl">3rd</label>
+                </div>
+                <div class="">
+                  <input
+                    type="radio"
+                    name="study-year"
+                    id="4th"
+                    value="4"
+                    required
+                  />
+                  <label for="4th" class="radio-lbl">4th</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="div-student-image margin-bottom--lg">
+              <label for="student-img" class="login-lbl">Profile picture</label>
+
+              <img
+                src="img-placeholder.png"
+                alt="Student image to be uploaded"
+                name="student-img"
+                height="200"
+                width="200"
+                id="studentImageBox"
+              />
+
+              <input
+                accept="image/*"
+                type="file"
+                id="studentImage"
+                class="btn btn--outline input-student-img"
+              />
+            </div>
+
+            <div class="flex proceed-clear-button">
+              <a href="#" class="btn btn--outline">clear</a>
+              <!-- <a href="#" class="btn btn-active btn--full">proceed</a> -->
+              <a
+                href="#"
+                class="btn btn-active btn--full btn-register-submit"
+                onclick="submit()"
+                >Proceed</a
+              >
+            </div>
+            <p class="reg-msg">We don't disclose your personal information</p>
+          </div>
+        </form>
+      </div>
+
+      <div class="div-idpswd-popup hidden">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nulla
+          similique maxime repellendus voluptatum, est eveniet amet tempore
+          omnis, consectetur et ab sit, asperiores quo. Doloribus unde incidunt
+          quaerat tempore!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      studentImage.onchange = (event) => {
+        const [file] = studentImage.files;
+
+        if (file) {
+          studentImageBox.src = URL.createObjectURL(file);
+        }
+      };
+
+      function submit() {
+        document.getElementById(`submit`).submit();
+        console.log(`Submitted`);
+      }
+    </script>
+  </body>
+</html>

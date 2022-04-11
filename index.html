@@ -25,6 +25,8 @@
       src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
     ></script>
 
+    <script src="js/script.js" defer></script>
+
     <title>Website name</title>
   </head>
   <body>
@@ -32,85 +34,101 @@
       <!-- optional -->
 
       <div class="logo-nav">
-        <a href="#" class="logo margin-right--md">WEBSITE <span>NAME</span></a>
+        <a href="#" class="logo">WEBSITE <span>NAME</span></a>
 
-        <nav class="main-nav">
-          <ul class="main-nav-list">
-            <li><a href="#" class="main-nav-link">Online Exam</a></li>
-            <li><a href="#" class="main-nav-link">Forum</a></li>
-            <li><a href="#" class="main-nav-link">Repository</a></li>
-            <li>
-              <a href="#" class="main-nav-link nav-cta btn--full btn"
-                >My Wall</a
-              >
-            </li>
-          </ul>
-          <!-- <button class="btn-mobile-nav"></button> -->
-        </nav>
+        <div class="flex hero-btns">
+          <a href="registration.html" class="btn btn-register margin-right--sm"
+            >Register</a
+          >
+          <a href="#" class="btn btn-login btn--full">Log in</a>
+        </div>
       </div>
-
-      <aside>
-        <p>Hello, user <ion-icon name="chevron-down-outline"></ion-icon></p>
-      </aside>
     </header>
 
     <main>
-      <section class="section-login-register margin-bottom--ex--lg">
-        <div class="login-register">
-          <label class="lbl-login" for="login">Log in</label>
-          <form action="#" id="login">
-            <input
-              type="text"
-              name="username"
-              ,
-              placeholder="username"
-              ,
-              id="username"
-              class="input-box margin-right--sm"
-            />
-            <input
-              type="password"
-              name="password"
-              ,
-              placeholder="password"
-              ,
-              id="password"
-              class="input-box margin-right--sm"
-            />
-            <input type="submit" value="&rightarrow;" class="btn-login" />
-          </form>
-          <p class="separator">|</p>
-          <a href="#" class="register">Register</a>
-        </div>
-      </section>
-
       <section class="section-hero">
-        <div class="hero grid grid--2-cols container">
-          <div class="hero-text-box">
-            <h1 class="heading-primary margin-bottom--sm">
-              A website by student, for students
-            </h1>
-            <p class="hero-description margin-bottom--md">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
-              ipsam natus illo ipsa vero praesentium corporis doloremque,
-              delectus nisi, quae aliquid, voluptatum tempora excepturi eos
-              harum repudiandae porro. Nulla, officiis!
-            </p>
-
-            <div class="hero-btns">
-              <a href="#" class="btn btn--full margin-right--sm">Login</a>
-              <a href="#" class="btn btn--outline">Forum</a>
-            </div>
-          </div>
+        <div class="hero container">
           <div class="hero-img-box">
             <picture>
-              <source srcset="student.webp" type="image/webp" />
-              <source srcset="student.png" type="image/png" />
+              <source srcset="exam.svg" type="image/webp" />
+              <source srcset="exam.png" type="image/png" />
 
-              <img src="student.png" alt="" class="hero-img" />
+              <img src="exam.png" alt="" class="hero-img" />
             </picture>
           </div>
+
+          <div class="hero-text-box">
+            <h1 class="heading-primary margin-bottom--md">
+              One stop solution for all <span class="student">students</span>
+            </h1>
+
+            <!-- <div class="nav"> -->
+            <nav class="main-nav">
+              <ul class="main-nav-list">
+                <li>
+                  <a href="exam_sub.html" class="main-nav-link">Online Exam</a>
+                </li>
+                <li>
+                  <a href="forum.html" class="main-nav-link">Forum</a>
+                </li>
+                <li>
+                  <a href="repository.html" class="main-nav-link">Repository</a>
+                </li>
+                <li>
+                  <a href="my_wall.html" class="main-nav-link nav-cta"
+                    >My Wall</a
+                  >
+                </li>
+              </ul>
+            </nav>
+            <!-- </div> -->
+          </div>
         </div>
+
+        <div class="login-popup hidden">
+          <picture>
+            <source srcset="login.svg" type="image/webp" />
+            <source srcset="login.png" type="image/png" />
+
+            <img
+              src="login.png"
+              alt="picture of a girl with her laptop, with a lock symbol"
+              class="login-picture"
+            />
+          </picture>
+          <div class="div-login-form">
+            <p class="form-login-heading">Log in</p>
+            <p />
+            <form action="" method="get" class="login-form">
+              <div>
+                <label for="username" class="login-lbl lbl-username"
+                  >username</label
+                >
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  class="input-box"
+                />
+              </div>
+
+              <div class="margin-bottom--sm">
+                <label for="password" class="login-lbl lbl-password"
+                  >password</label
+                >
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="input-box"
+                />
+              </div>
+              <input type="submit" class="btn-submit btn--full" />
+            </form>
+          </div>
+        </div>
+
+        <div class="overlay hidden"></div>
       </section>
     </main>
     <footer></footer>
