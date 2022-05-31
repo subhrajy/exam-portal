@@ -193,7 +193,11 @@
     function checkerror(data) {
       console.log("helo");
       var req = new XMLHttpRequest();
-      req.open("get", "/trial_error.php", true);
+      req.open(
+        "get",
+        "http://localhost:8888/E-EXAM%20IWT/trial_error.php",
+        true
+      );
       req.send();
 
       req.onreadystatechange = function () {
@@ -210,7 +214,10 @@
             });
             document.querySelector(".login-popup").classList.remove("hidden");
           } else {
-            if (data == 1) window.location.replace("exam_sub_2.php");
+            if (data == 1)
+              window.location.replace(
+                "http://localhost:8888/E-EXAM%20IWT/exam_sub_2.php"
+              );
             else if (data == 2)
               window.location.replace(
                 "http://localhost:8888/E-EXAM%20IWT/forum.php"
