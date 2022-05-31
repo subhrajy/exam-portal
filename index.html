@@ -174,7 +174,7 @@
 
   <script>
     var req = new XMLHttpRequest();
-    req.open("get", "http://localhost:8888/E-EXAM%20IWT/trial_error.php", true);
+    req.open("get", "trial_error.php", true);
     req.send();
 
     req.onreadystatechange = function () {
@@ -193,11 +193,7 @@
     function checkerror(data) {
       console.log("helo");
       var req = new XMLHttpRequest();
-      req.open(
-        "get",
-        "http://localhost:8888/E-EXAM%20IWT/trial_error.php",
-        true
-      );
+      req.open("get", "trial_error.php", true);
       req.send();
 
       req.onreadystatechange = function () {
@@ -214,22 +210,10 @@
             });
             document.querySelector(".login-popup").classList.remove("hidden");
           } else {
-            if (data == 1)
-              window.location.replace(
-                "http://localhost:8888/E-EXAM%20IWT/exam_sub_2.php"
-              );
-            else if (data == 2)
-              window.location.replace(
-                "http://localhost:8888/E-EXAM%20IWT/forum.php"
-              );
-            else if (data == 3)
-              window.location.replace(
-                "http://localhost:8888/E-EXAM%20IWT/repository.php"
-              );
-            else if (data == 4)
-              window.location.replace(
-                "http://localhost:8888/E-EXAM%20IWT/my_wall_update.php"
-              );
+            if (data == 1) window.location.replace("exam_sub_2.php");
+            else if (data == 2) window.location.replace("forum.php");
+            else if (data == 3) window.location.replace("repository.php");
+            else if (data == 4) window.location.replace("my_wall_update.php");
           }
         }
       };
@@ -257,10 +241,7 @@
         var req = new XMLHttpRequest();
         req.open(
           "POST",
-          "http://localhost:8888/E-EXAM%20IWT/login_validation.php?id=" +
-            username +
-            "&pswrd=" +
-            password,
+          "login_validation.php?id=" + username + "&pswrd=" + password,
           true
         );
         req.send();
@@ -270,9 +251,7 @@
             var response = req.responseText;
             if (response == "Sucess") {
               // console.log(data);
-              window.location.replace(
-                "http://localhost:8888/E-EXAM%20IWT/my_wall_update.php"
-              );
+              window.location.replace("my_wall_update.php");
             }
             document.getElementById("msg").innerHTML = req.responseText;
             document.getElementById("username").value = "";
