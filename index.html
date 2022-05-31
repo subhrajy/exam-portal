@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/queries.css" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script src="js/script-subhra.js" defer></script>
+
+    <title>Website name</title>
+  </head>
+  <body>
+    <header class="header">
+      <!-- optional -->
+
+      <div class="logo-nav">
+        <a href="index.html" class="logo">WEBSITE <span>NAME</span></a>
+
+        <div class="flex hero-btns">
+          <a href="registration_2.php" class="btn btn-register margin-right--sm"
+            >Register</a
+          >
+          <a href="#" class="btn btn-login btn--full">Log in</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section-hero">
+        <div class="hero container">
+          <div class="hero-img-box">
+            <picture>
+              <source srcset="images/exam.svg" type="image/webp" />
+              <source srcset="images/exam.png" type="image/png" />
+
+              <img src="images/exam.png" alt="" class="hero-img" />
+            </picture>
+          </div>
+
+          <div class="hero-text-box">
+            <h1 class="heading-primary margin-bottom--md">
+              One stop solution for all <span class="student">students</span>
+            </h1>
+
+            <nav class="main-nav">
+              <ul class="main-nav-list">
+                <li>
+                  <button
+                    type="button"
+                    id="btn-check"
+                    onclick="checkerror(1)"
+                    class="btn--nav-list"
+                  >
+                    Online exam
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    id="btn-check"
+                    onclick="checkerror(2)"
+                    class="btn--nav-list"
+                  >
+                    Forum
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    id="btn-check"
+                    onclick="checkerror(3)"
+                    class="btn--nav-list"
+                  >
+                    Repository
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    id="btn-check"
+                    onclick="checkerror(4)"
+                    class="btn--nav-list"
+                  >
+                    My Wall
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <div class="login-popup hidden">
+          <picture>
+            <!-- <source srcset="../images/login.svg" type="image/webp" />
+            <source srcset="../images/login.png" type="image/png" /> -->
+
+            <img
+              src="images/login.png"
+              alt="picture of a girl with her laptop, with a lock symbol"
+              class="login-picture"
+            />
+          </picture>
+          <div class="div-login-form">
+            <p class="form-login-heading">Log in</p>
+            <!-- <p /> -->
+            <span
+              class="
+            "
+              id="msg"
+            ></span>
+
+            <form action="" method="" class="login-form">
+              <div>
+                <label for="username" class="login-lbl lbl-username"
+                  >username</label
+                >
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  class="input-box"
+                  required
+                />
+              </div>
+
+              <div class="margin-bottom--sm">
+                <label for="password" class="login-lbl lbl-password"
+                  >password</label
+                >
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="input-box"
+                  required
+                />
+                <span id=""></span>
+              </div>
+              <button
+                type="button"
+                onclick="send_req(0)"
+                class="btn-submit btn-full"
+              >
+                Login
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="overlay hidden"></div>
+      </section>
+    </main>
+  </body>
+
+  <script>
+    var req = new XMLHttpRequest();
+    req.open("get", "http://localhost:8888/E-EXAM%20IWT/trial_error.php", true);
+    req.send();
+
+    req.onreadystatechange = function () {
+      const divHeroButtonsEl = document.querySelector(`.hero-btns`);
+
+      if (req.readyState == 4) {
+        var i = req.responseText;
+        if (i == "false") {
+          console.log("something");
+        } else {
+          divHeroButtonsEl.classList.add(`hidden`);
+        }
+      }
+    };
+
+    function checkerror(data) {
+      console.log("helo");
+      var req = new XMLHttpRequest();
+      req.open(
+        "get",
+        "http://localhost:8888/E-EXAM%20IWT/trial_error.php",
+        true
+      );
+      req.send();
+
+      req.onreadystatechange = function () {
+        if (req.readyState == 4) {
+          var i = req.responseText;
+          if (i == "false") {
+            const overlay = document.querySelector(`.overlay`);
+            const login_popup = document.querySelector(`.login-popup`);
+            console.log(overlay);
+            overlay.classList.remove("hidden");
+            overlay.addEventListener("click", () => {
+              overlay.classList.add(`hidden`);
+              login_popup.classList.add(`hidden`);
+            });
+            document.querySelector(".login-popup").classList.remove("hidden");
+          } else {
+            if (data == 1)
+              window.location.replace(
+                "http://localhost:8888/E-EXAM%20IWT/exam_sub_2.php"
+              );
+            else if (data == 2)
+              window.location.replace(
+                "http://localhost:8888/E-EXAM%20IWT/forum.php"
+              );
+            else if (data == 3)
+              window.location.replace(
+                "http://localhost:8888/E-EXAM%20IWT/repository.php"
+              );
+            else if (data == 4)
+              window.location.replace(
+                "http://localhost:8888/E-EXAM%20IWT/my_wall_update.php"
+              );
+          }
+        }
+      };
+    }
+
+    function send_req(data) {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      if (username == "" || password == "") {
+        document.getElementById("msg").innerHTML =
+          "Login Credentials missing!!";
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+      } else if (isNaN(username)) {
+        document.getElementById("msg").innerHTML =
+          "Incorrect Username- Username should consists of only digits";
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+      } else if (username.length != 9) {
+        document.getElementById("msg").innerHTML =
+          "Incorrect Username- Username should consists of only 9 digits";
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+      } else {
+        var req = new XMLHttpRequest();
+        req.open(
+          "POST",
+          "http://localhost:8888/E-EXAM%20IWT/login_validation.php?id=" +
+            username +
+            "&pswrd=" +
+            password,
+          true
+        );
+        req.send();
+
+        req.onreadystatechange = function () {
+          if (req.readyState == 4) {
+            var response = req.responseText;
+            if (response == "Sucess") {
+              // console.log(data);
+              window.location.replace(
+                "http://localhost:8888/E-EXAM%20IWT/my_wall_update.php"
+              );
+            }
+            document.getElementById("msg").innerHTML = req.responseText;
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+          }
+        };
+      }
+      // console.log("http://localhost/E-EXAM%20IWT/login_validation.php?id="+username + "&pswrd="+password);
+      // console.log(username);
+      // console.log(password);
+    }
+  </script>
+</html>

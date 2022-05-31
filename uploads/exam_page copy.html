@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <style>
+      #options {
+        font-size: medium;
+      }
+      #question {
+        font-size: large;
+      }
+      button {
+        font-size: large;
+      }
+    </style> -->
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <title>Whatever the exam you have choosen</title>
+  </head>
+  <body class="exam-page">
+    <header class="exam-header margin-bottom--sm">
+      <div class="div--exam-details">
+        <h2 class="exam-subject-name">Computer</h2>
+        <div class="div--time-profile-pic">
+          <p class="time">
+            <span class="time-remaining">00:00</span>&ThickSpace;&ThickSpace;
+            remaining
+          </p>
+          <picture>
+            <!-- <source srcset="profile.svg" type="image/webp" /> -->
+            <source srcset="profile.png" type="image/png" />
+
+            <img src="profile.png" alt="picture of user" class="student-pic" />
+          </picture>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="< div--parent-questions margin-bottom--sm">
+        <!-- div all questions -->
+        <!-- <div class="div--questions-container">
+          <div class="div-questions">
+            <a href="#" class="questions">
+              <span class="question-number"></span>what is something that i...?
+            </a>
+          </div>
+          <div class="div-questions">
+            <a href="#" class="questions">
+              <span class="question-number"></span>what is something that i...?
+            </a>
+          </div>
+          <div class="div-questions">
+            <a href="#" class="questions">
+              <span class="question-number"></span>what is something that i...?
+            </a>
+          </div>
+          <div class="div-questions">
+            <a href="#" class="questions">
+              <span class="question-number"></span>what is something that i...?
+            </a>
+          </div>
+        </div> -->
+
+        <!-- div individual questions woth options -->
+
+        <form
+          class="form-questions--options"
+          id="qstn-form"
+          name="qstn-form"
+          action="exam_sub.html"
+        >
+          <div class="div--question-options margin-bottom--sm" id="setup">
+            <div
+              class="div--question-statement margin-bottom--md"
+              id="question"
+            >
+              <label for="question">
+                <h3 class="question-statement">DISCLAIMER</h3>
+              </label>
+            </div>
+
+            <div class="div-options">
+              <ul class="disclaimers">
+                <li class="disclaimer">Do not cry</li>
+                <li class="disclaimer">Do not break computer</li>
+                <li class="disclaimer">Do not yell</li>
+                <li class="disclaimer">Do not try to cheat</li>
+                <li class="disclaimer">Useless point</li>
+              </ul>
+              <div id="options" class="option grid grid--2-cols">
+                <input type="radio" id="opt" value="A" required name="option" />
+                <input type="radio" id="opt" value="B" required name="option" />
+                <input type="radio" id="opt" value="C" required name="option" />
+                <input type="radio" id="opt" value="D" required name="option" />
+              </div>
+            </div>
+          </div>
+          <div class="div-buttons">
+            <button
+              type="button"
+              id="next"
+              onclick="change(option.value)"
+              class="btn btn-full btn-save"
+            >
+              Save and next
+            </button>
+
+            <button
+              type="button"
+              id="quit"
+              onclick="quitExam()"
+              class="btn btn-full btn-quit"
+            >
+              quit
+            </button>
+          </div>
+        </form>
+
+        <!-- <label for="1st">BBSR</label> -->
+
+        <!-- <div class="option">
+              <label for="2nd">Silicon</label>
+            </div>
+
+            <div class="option">
+              <input type="radio" name="question" id="3rd" />
+              <label for="3rd">Ashok Bhai Dukan</label>
+            </div>
+
+            <div class="option">
+              <input type="radio" name="question" id="4th" /> -->
+        <!-- <label for="4th">Dean Academics</label>
+            </div>
+             <div class="div--save-submit-button">
+              <a href="#" class="btn btn-exam-submit">submit</a>
+            </div>  
+           </div>
+
+         
+        </div>
+        <button type = "button" id = "next" onclick = "change(option.value)">Save</button>
+         <!-- <form id = "qstn-form" name = "qstn-form">
+          <div id = "setup">
+              <div id = "question">
+                  <h3>Q1.</h3>
+                  <h3>Question</h3>
+              </div>
+              <div id = "options">
+                  <input type = "radio" id = "opt" value = "A" required name = "option"> A
+                  <input type = "radio" id = "opt" value = "B" required name = "option"> B
+                  <input type = "radio" id = "opt" value = "C" required name = "option"> C
+                  <input type = "radio" id = "opt" value = "D" required name = "option"> D
+              </div>
+          </div>
+          <button type = "button" id = "next" onclick = "change(option.value)">Save</button>
+      </form>  -->
+      </div>
+    </main>
+
+    <footer></footer>
+  </body>
+  <script>
+    const timerEl = document.querySelector(`.time-remaining`);
+    const questionForm = document.querySelector(`#qstn-form`);
+    const saveBtnEl = document.querySelector(`.btn-save`);
+    let time = 1000;
+    let flag = true;
+    const startLogOutTimer = function () {
+      const tick = function () {
+        flag = false;
+        const min = String(Math.trunc(time / 60)).padStart(2, 0);
+        const sec = String(time % 60).padStart(2, 0);
+
+        timerEl.textContent = `${min}m:${sec}s`;
+
+        if (time === 0) {
+          clearInterval(timer);
+          questionForm.submit();
+        }
+
+        time--;
+      };
+
+      timerEl.style.transform = `scale(2)`;
+      timerEl.style.color = `#ff0000`;
+      setTimeout(() => {
+        timerEl.style.transform = `scale(1)`;
+      }, 200);
+
+      tick();
+      const timer = setInterval(tick, 1000);
+    };
+
+    const quitExam = function () {
+      const choice = prompt(`Are you sure to quit?`);
+      if (choice.toLocaleLowerCase() === ``) questionForm.submit();
+
+      // master piece by Spandan
+      // alert(`<form> <h3> DO YOU WANT TO QUIT? </h3>
+      //   <button>Yes</button>
+      //   <button>No </button>
+      //   </form>`);
+    };
+
+    saveBtnEl.textContent = `continue`;
+
+    function change(data) {
+      console.log(data);
+      var req = new XMLHttpRequest();
+      req.open(
+        "GET",
+        "http://localhost/E-EXAM%20IWT/trial2.php?chosen=" + data,
+        true
+      );
+      req.send();
+
+      req.onreadystatechange = function () {
+        if (flag) startLogOutTimer();
+        saveBtnEl.textContent = `save and next`;
+
+        if (req.readyState == 4) {
+          document.getElementById("setup").innerHTML = req.responseText;
+        }
+      };
+    }
+    // window.onload=function(){
+    //     document.getElementById("next").click();
+    // };
+  </script>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <title>Whatever the exam you have choosen</title>
+  </head>
+  <body class="exam-page">
+    <header class="exam-header margin-bottom--sm">
+      <div class="div--exam-details">
+        <h2 class="exam-subject-name">Computer</h2>
+        <div class="div--time-profile-pic">
+          <p class="time">
+            <span class="time-remaining">00:00</span>&ThickSpace;&ThickSpace;
+            remaining
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="div--parent-questions margin-bottom--sm">
+        <form
+          class="form-questions--options"
+          id="qstn-form"
+          name="qstn-form"
+          action="exam_sub_2.php"
+        >
+          <div class="div--question-options margin-bottom--sm" id="setup">
+            <div
+              class="div--question-statement margin-bottom--md"
+              id="question"
+            >
+              <label for="question">
+                <h3 class="question-statement">INSTRUCTIONS</h3>
+              </label>
+            </div>
+
+            <div class="div-options">
+              <ul class="disclaimers">
+                <li class="disclaimer">The quiz time is for 2 minutes</li>
+                <li class="disclaimer">
+                  After starting the quiz the examinee cannot revert back to
+                  other page, failing to do so will submit your responses till
+                  the last question you have attempted
+                </li>
+                <li class="disclaimer">
+                  If the examinee reloads the page or tries to go back then the
+                  exam will be immediately over
+                </li>
+                <li class="disclaimer">
+                  No kind of malpractices will be entertained
+                </li>
+                <li class="disclaimer margin-bottom--lg">
+                  The small box at the right top corner of your screen shows the
+                  time remaining for the exam
+                </li>
+              </ul>
+              <p class="disclaimer-special">ALL THE BEST FOR YOUR TEST</p>
+
+              <div id="options" class="option grid grid--2-cols">
+                <input type="radio" id="opt" value="A" required name="option" />
+                <input type="radio" id="opt" value="B" required name="option" />
+                <input type="radio" id="opt" value="C" required name="option" />
+                <input type="radio" id="opt" value="D" required name="option" />
+              </div>
+            </div>
+          </div>
+          <div class="div-buttons">
+            <button
+              type="button"
+              id="next"
+              onclick="change(option.value)"
+              class="btn btn-full btn-save"
+            >
+              Save and next
+            </button>
+
+            <button
+              type="button"
+              id="quit"
+              onclick="quitExam()"
+              class="btn btn-full btn-quit"
+            >
+              quit
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+  <script>
+    const timerEl = document.querySelector(`.time-remaining`);
+    const questionForm = document.querySelector(`#qstn-form`);
+    const saveBtnEl = document.querySelector(`.btn-save`);
+    let time = 120;
+    let flag = true;
+
+    const startLogOutTimer = function () {
+      const tick = function () {
+        flag = false;
+        const min = String(Math.trunc(time / 60)).padStart(2, 0);
+        const sec = String(time % 60).padStart(2, 0);
+        console.log(sec, flag);
+
+        timerEl.textContent = `${min}m:${sec}s`;
+
+        if (time === 0) {
+          clearInterval(timer);
+          questionForm.submit();
+        }
+
+        time--;
+      };
+
+      timerEl.style.transform = `scale(2)`;
+      timerEl.style.color = `#ff0000`;
+      setTimeout(() => {
+        timerEl.style.transform = `scale(1)`;
+      }, 200);
+
+      tick();
+      const timer = setInterval(tick, 1000);
+    };
+
+    const quitExam = function () {
+      const choice = prompt(`Are you sure to quit?`);
+      if (choice.toLocaleLowerCase() === ``) questionForm.submit();
+      // alert(`<form> <h3> DO YOU WANT TO QUIT? </h3>
+      //   <button>Yes</button>
+      //   <button>No </button>
+      //   </form>`);
+    };
+
+    saveBtnEl.textContent = `continue`;
+
+    function change(data) {
+      console.log(`data is ${data}`);
+      var req = new XMLHttpRequest();
+      req.open(
+        "GET",
+        "http://localhost:8888/E-EXAM%20IWT/get_question.php?chosen=" + data,
+        true
+      );
+      req.send();
+
+      req.onreadystatechange = function () {
+        if (flag) startLogOutTimer();
+        saveBtnEl.textContent = `save and next`;
+
+        if (req.readyState == 4) {
+          var response = req.responseText;
+          if (!response.includes("THE END of exam!!!"))
+            document.getElementById("setup").innerHTML = response;
+          else
+            window.location.href =
+              "http://localhost:8888/E-EXAM%20IWT/exam_sub_2.php";
+        }
+      };
+    }
+    window.onbeforeunload = function () {
+      console.log(saveBtnEl.textContent);
+      // if (!saveBtnEl.textContent === `continue`) {
+      if (saveBtnEl.textContent === "save and next") {
+        // document.getElementById("next").click();
+        console.log(`something`);
+        window.setTimeout(() => questionForm.submit(), 0);
+      }
+
+      window.onbeforeunload = null;
+    };
+
+    // window.onbeforeunload = function () {
+    //   return "Do you want to leave?";
+    // };
+  </script>
+</html>

@@ -1,0 +1,154 @@
+/* BELOW 1553PC SCREEN SIZE */
+
+@media (max-width: 98em) {
+  .hero {
+    margin: 2.4rem;
+  }
+}
+
+@media (max-width: 94em) {
+  .main-nav-list {
+    font-size: 1.6rem;
+  }
+
+  /* .hero {
+    gap: 12.8rem;
+  } */
+}
+
+@media (max-width: 85em) {
+  .heading-primary {
+    font-size: 4.4rem;
+  }
+
+  .hero-img {
+    width: 50rem;
+  }
+}
+
+@media (max-width: 79em) {
+  .btn-mobile-nav {
+    position: absolute;
+  }
+}
+
+@media (max-width: 71em) {
+  .hero {
+    gap: 15rem;
+  }
+}
+
+@media (max-width: 67em) {
+  .hero {
+    gap: 10rem;
+  }
+}
+
+@media (max-width: 64em) {
+  .hero-img {
+    width: 45rem;
+  }
+}
+
+@media (max-width: 61em) {
+  .hero-img {
+    width: 40rem;
+  }
+
+  .main-nav-list {
+    font-size: 1.4rem;
+  }
+
+  .hero-heading {
+    font-size: 3.6rem;
+  }
+}
+
+@media (max-width: 56em) {
+  .hero {
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .hero-heading {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 40em) {
+  .logo {
+    font-size: 2rem;
+  }
+
+  .btn-register,
+  .btn-login {
+    font-size: 1.2rem;
+    padding: 1.2rem 2.4rem;
+  }
+}
+
+@media (max-width: 35em) {
+  .header {
+    padding: 1.6rem 1.6rem;
+  }
+
+  .hero-heading {
+    font-size: 3rem;
+  }
+
+  .hero-img {
+    width: 35rem;
+  }
+}
+
+@media (max-width: 30em) {
+  .header {
+    padding: 1.6rem 2.4rem;
+  }
+
+  .btn-register,
+  .btn-login {
+    font-size: 1.2rem;
+    padding: 1rem 1.8rem;
+  }
+
+  .hero-heading {
+    font-size: 2.4rem;
+  }
+
+  .hero-img {
+    width: 30rem;
+  }
+}
+
+@media (max-width: 27em) {
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .hero {
+    gap: 6rem;
+  }
+
+  .main-nav {
+    width: 200px;
+    margin: 0 auto;
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+}
+
+@media (max-width: 25em) {
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .btn-register,
+  .btn-login {
+    font-size: 1.2rem;
+    padding: 1rem 1rem;
+  }
+}
