@@ -285,19 +285,6 @@
   z-index: 100;
 }
 
-.required {
-  display: inline-block;
-  position: absolute;
-  left: 12.8rem;
-  /* background-color: #4dcc6b; */
-  background-color: #9792fe;
-  border-radius: 5px;
-  color: #fff;
-  padding: 5px 10px;
-  transform: translateY(-20%);
-  float: right;
-}
-
 .user-id {
   font-size: 1.8rem;
 }
