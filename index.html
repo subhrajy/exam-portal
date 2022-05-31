@@ -193,11 +193,7 @@
     function checkerror(data) {
       console.log("helo");
       var req = new XMLHttpRequest();
-      req.open(
-        "get",
-        "http://localhost:8888/E-EXAM%20IWT/trial_error.php",
-        true
-      );
+      req.open("get", "/trial_error.php", true);
       req.send();
 
       req.onreadystatechange = function () {
