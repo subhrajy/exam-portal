@@ -1318,6 +1318,7 @@ ion-icon {
 
 .form--upload-files {
   display: flex;
+  border: 2px solid red;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
